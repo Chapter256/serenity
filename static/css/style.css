@@ -129,14 +129,14 @@ body {
 }
 
 .btn-like {
-    color: #954631;
+    color: #E84610;
     border: none;
     background: transparent;
 }
 
 .btn-like:hover,
 .btn-like:active {
-    color: #954631;
+    color: #E84610;
     background: transparent;
     border: none;
 }
