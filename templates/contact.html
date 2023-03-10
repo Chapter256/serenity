@@ -1,6 +1,6 @@
-{%  extends 'base.html' %}
+{% extends 'base.html' %}
 
-{%  black content %}
+{% block content %}
 
 {% load crispy_forms_tags %}
 
@@ -12,13 +12,12 @@
     <div class="card mb-4 mt-5 mx-3 contact-form">
         <div class="card-body">
             <form method="post">
-                {{ contact form | crispy}}
-                {% csrf_token%}
+                {{ contact_form | crispy }}	
+                {% csrf_token %}
                 <br>
                 <button type="submit" class="btn main-btn">Send</button>
             </form>
         </div>
     </div>
 </div>
-{%  %}
 {% endblack %}
