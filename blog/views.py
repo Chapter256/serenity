@@ -76,3 +76,24 @@ class PostLike(View):
             post.likes.add(request.user)
 
         return HttpResponseRedirect(reverse('post_detail', args=[slug]))
+
+
+def EditComment(request, comment_id):
+    comment = get_object_or_404(Comment, id = comment_id)
+    form = CommentForm(instance = comment)
+    if request.user.username == comment.name:
+        if request.method == "POST":
+            form = CommentForm(request.POST, request.FILES, instance = comment)
+            if form.is_valid():
+                form.save(commit = False)
+                form.save()
+            post = get_object_or_404(Post, id = comment.post.id)
+            messages.info(request, 'Your comment has been successfully edited!')
+            return redirect('post_detail', slug=post.slug)
+        return render(
+            request,
+            'edit_comment.html',
+            {
+                'form': form
+            }
+        )
