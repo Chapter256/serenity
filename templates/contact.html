@@ -1,0 +1,24 @@
+{%  extends 'base.html' %}
+
+{%  black content %}
+
+{% load crispy_forms_tags %}
+
+<div class="card-body">
+    <h3 class="text-center my-2">Contact Us</h3>
+    <p class="text-center">
+        We would love to help you out, don't hesitate to contact us if you have any questions or need information!
+    </p>
+    <div class="card mb-4 mt-5 mx-3 contact-form">
+        <div class="card-body">
+            <form method="post">
+                {{ contact form | crispy}}
+                {% csrf_token%}
+                <br>
+                <button type="submit" class="btn main-btn">Send</button>
+            </form>
+        </div>
+    </div>
+</div>
+{%  %}
+{% endblack %}
